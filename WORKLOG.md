@@ -116,7 +116,7 @@ This file records what was done, why, with which settings, what went wrong, and 
 1. Sensitivity runs: cleaning thresholds and post-fire window.
 2. Add fire weather or progression covariates if they can be sourced.
 3. Repeat on a second fire.
-4. Publish code and log to GitHub, then write up methods, results and limits.
+4. Write up methods, results and limits. (Code and log published to GitHub on 2026-11-10: github.com/seidumohammed/wildfire-lidar-severity.)
 
 ## Files
 
