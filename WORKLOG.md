@@ -102,6 +102,20 @@ This file records what was done, why, with which settings, what went wrong, and 
 
 **Next steps:** sensitivity to the cleaning thresholds and to the post-fire window; add fire-progression or weather covariates if available; repeat on a second fire (for example K21001 or K52125) to see whether the ranking holds; publish the code and log to GitHub.
 
+## Entry 5: 2026-11-10 | Robustness checks on the main result
+
+**Script:** `06_robustness.py`. Output: `robustness.json`. Purpose: check that the gain from adding LiDAR structure is not noise or an artefact of the cleaning rule, so the claim can be defended.
+
+**Checks and results (2 km blocks, XGBoost, 10 folds, 5,848 samples)**
+- Gain in out-of-fold R2 from adding structure: 0.069 (0.150 to 0.219).
+- Per-fold gain: positive in 10 of 10 folds (range 0.015 to 0.101, mean 0.070).
+- Block bootstrap (2,000 resamples of the 269 blocks): 95% interval for the gain 0.050 to 0.088. R2 for the full model 0.179 to 0.257, for covariates only 0.110 to 0.185. Every resample showed a positive gain.
+- Cleaning sensitivity (rh98 range): no filter (n = 5,858) gain 0.064; 2 to 60 m (n = 5,848) gain 0.069; 5 to 50 m (n = 5,561) gain 0.067; 2 to 40 m (n = 5,783) gain 0.066.
+
+**What the interval does and does not cover:** the bootstrap resamples blocks of held-out predictions. It reflects sampling variation across blocks. It does not include variation from refitting the models or from choosing a different fire, a different GEDI sample or a different post-fire window. The result stays a single-fire, preliminary finding.
+
+**Wording rules for the CV and statements:** say "raised out-of-fold R2 from 0.15 to 0.22" and give the 0.07 gain with its interval. Do not say the model "predicts" or "explains" burn severity well. State that about a fifth of the variation is explained. Describe sample units as 25 m pixels holding GEDI shots (median over months), not as individual shots.
+
 ## Known limits (carry into the write-up)
 
 - GEDI samples sparsely along tracks. This is a sampled analysis, not a wall-to-wall LiDAR map.
@@ -128,5 +142,6 @@ This file records what was done, why, with which settings, what went wrong, and 
 | `03_extract_samples.py` | Builds the GEDI and dNBR sample table |
 | `04_check_samples.py` | Checks the table (`sample_check.txt`) |
 | `requirements.txt` | Package versions |
+| `06_robustness.py` | Block bootstrap, per-fold gain, cleaning sensitivity (`robustness.json`) |
 | `05_clean_and_model.py` | Cleaning, spatial block validation, models, SHAP (`results.json`, `figures/`) |
 | `WORKLOG.md` | This log |
