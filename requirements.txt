@@ -1,0 +1,11 @@
+earthengine-api==1.7.52
+geemap==0.38.9
+geopandas==1.2.0
+matplotlib==3.11.2
+numpy==2.5.4
+pandas==3.1.1
+pyogrio==0.13.0
+rasterio==1.5.2
+scikit-learn==1.9.1
+shap==0.54.1
+xgboost==3.4.1

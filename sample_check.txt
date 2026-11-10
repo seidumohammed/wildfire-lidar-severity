@@ -1,0 +1,53 @@
+rows: 5858
+columns: cover, dnbr, elevation, lat, lon, ndvi_pre, pai, rh25, rh50, rh75, rh98, slope
+
+missing values per column:
+cover        0
+dnbr         0
+elevation    0
+lat          0
+lon          0
+ndvi_pre     0
+pai          0
+rh25         0
+rh50         0
+rh75         0
+rh98         0
+slope        0
+
+summary statistics:
+            count      mean      std      min       25%       50%       75%       max
+cover      5858.0     0.464    0.266    0.002     0.245     0.440     0.690     0.976
+dnbr       5858.0     0.378    0.267   -0.336     0.158     0.350     0.575     1.193
+elevation  5858.0  1186.297  287.757  365.000  1001.000  1176.000  1396.000  2011.000
+lat        5858.0    50.331    0.086   50.152    50.272    50.327    50.373    50.566
+lon        5858.0  -119.699    0.178 -120.092  -119.845  -119.718  -119.543  -119.342
+ndvi_pre   5858.0     0.768    0.091    0.181     0.738     0.793     0.828     0.908
+pai        5858.0     1.625    1.381    0.003     0.563     1.165     2.367     7.683
+rh25       5858.0     1.279    3.231   -4.940    -0.890     0.000     2.819    43.900
+rh50       5858.0     5.311    5.262   -1.190     0.970     3.567     8.700    48.810
+rh75       5858.0    10.650    7.214    0.000     4.348     9.840    15.500    72.580
+rh98       5858.0    18.909    9.013    0.070    12.185    18.975    24.678    93.210
+slope      5858.0    14.089    9.017    0.000     7.077    12.030    19.454    59.567
+
+share of samples by dNBR class:
+dnbr
+enhanced regrowth     0.5
+unburned             17.4
+low severity         22.4
+moderate-low         20.0
+moderate-high        22.5
+high                 17.3
+
+Spearman correlation with dNBR:
+ndvi_pre     0.075
+slope        0.108
+elevation    0.174
+rh25         0.195
+pai          0.198
+cover        0.199
+rh50         0.225
+rh75         0.247
+rh98         0.257
+
+duplicate coordinates: 0
